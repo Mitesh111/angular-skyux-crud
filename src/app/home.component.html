@@ -1,0 +1,153 @@
+<app-nav> </app-nav>
+
+<main>
+  <sky-fluid-grid>
+    <form [formGroup]="employeeForm" (ngSubmit)="save()">
+      <sky-row>
+        <sky-column>
+          <div class="sky-form-group" style="max-width: 50%">
+            <label
+              for="form-group-first-input-example"
+              class="sky-control-label sky-control-label-required"
+            >
+              First name
+            </label>
+            <input
+              formControlName="firstName"
+              class="sky-form-control"
+              id="form-group-first-input-example"
+              type="text"
+              required
+            />
+            <div
+              *ngIf="
+                employeeForm.get('firstName').errors &&
+                (employeeForm.get('firstName').dirty ||
+                  employeeForm.get('firstName').touched)
+              "
+              class="alert alert-danger"
+            >
+              Please enter first name.
+            </div>
+          </div>
+        </sky-column>
+      </sky-row>
+      <sky-row>
+        <sky-column>
+          <div class="sky-form-group" style="max-width: 50%">
+            <label
+              for="form-group-second-input-example"
+              class="sky-control-label sky-control-label-required"
+            >
+              Last name
+            </label>
+            <input
+              class="sky-form-control"
+              formControlName="lastName"
+              id="form-group-second-input-example"
+              type="text"
+              required
+            />
+            <div
+              *ngIf="
+                employeeForm.get('lastName').errors &&
+                (employeeForm.get('lastName').dirty ||
+                  employeeForm.get('lastName').touched)
+              "
+              class="alert alert-danger"
+            >
+              Please enter last name.
+            </div>
+          </div>
+        </sky-column>
+      </sky-row>
+      <sky-row>
+        <sky-column>
+          <div class="sky-form-group" style="max-width: 50%">
+            <label
+              for="form-group-second-input-example"
+              class="sky-control-label sky-control-label-required"
+            >
+              Contact number
+            </label>
+            <sky-input-box>
+              <sky-phone-field [defaultCountry]="'in'">
+                <input formControlName="contactNumber" skyPhoneFieldInput />
+              </sky-phone-field>
+            </sky-input-box>
+            <sky-status-indicator
+              *ngIf="
+                (!employeeForm.get('contactNumber').valid ||
+                  employeeForm.get('contactNumber').errors.required) &&
+                (employeeForm.get('contactNumber').dirty ||
+                  employeeForm.get('contactNumber').touched)
+              "
+              descriptionType="none"
+              indicatorType="danger"
+            >
+              Enter a phone number matching the format for the selected country.
+            </sky-status-indicator>
+          </div>
+        </sky-column>
+      </sky-row>
+      <sky-row>
+        <sky-column>
+          <div class="sky-form-group" style="max-width: 50%">
+            <label
+              for="form-group-second-input-example"
+              class="sky-control-label sky-control-label-required"
+            >
+              Email
+            </label>
+            <input
+              class="sky-form-control"
+              formControlName="emailAddress"
+              skyEmailValidation
+            />
+          </div>
+        </sky-column>
+      </sky-row>
+      <sky-row>
+        <sky-column>
+          <div class="sky-form-group" style="max-width: 50%">
+            <label
+              for="form-group-second-input-example"
+              class="sky-control-label sky-control-label-required"
+            >
+              Date of Birth
+            </label>
+            <sky-datepicker>
+              <input
+                class="sky-form-control"
+                formControlName="dateOfBirth"
+                skyDatepickerInput
+                type="text"
+              />
+            </sky-datepicker>
+          </div>
+        </sky-column>
+      </sky-row>
+      <sky-row>
+        <sky-column>
+          <div class="sky-form-group" style="max-width: 50%">
+            <label class="sky-control-label" for="myTextarea"> Address </label>
+            <textarea
+              class="sky-form-control"
+              formControlName="address"
+            ></textarea>
+          </div>
+        </sky-column>
+      </sky-row>
+      <sky-row>
+        <sky-column>
+          <button
+            class="sky-btn sky-btn-primary"
+            [disabled]="!employeeForm.valid"
+          >
+            Save
+          </button>
+        </sky-column>
+      </sky-row>
+    </form>
+  </sky-fluid-grid>
+</main>

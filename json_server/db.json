@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "firstName": "Mitesh",
+      "lastName": "Kapasia",
+      "id": 1
+    },
+    {
+      "firstName": "Kuldeep",
+      "lastName": "Yadav",
+      "id": 2
+    },
+    {
+      "firstName": "Mitesh",
+      "lastName": "Kapasia",
+      "contactNumber": "079845 63129",
+      "emailAddress": "miteshkapasia@gmail.com",
+      "dateOfBirth": "2021-02-28T18:30:00.000Z",
+      "id": 3
+    }
+  ]
+}
